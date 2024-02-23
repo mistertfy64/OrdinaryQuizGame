@@ -7,9 +7,10 @@ body {
   font-family: sans-serif;
 }
 
-main {
+main, .centered {
   display:flex;
   justify-content: center;
+  flex-direction: row;
 }
 
 .content-box {
