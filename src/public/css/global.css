@@ -1,35 +1,42 @@
 :root {
-  --color-neutral: #000000;
+	--color-neutral: #000000;
 }
 
 body {
-  background-color: #cccccc;
-  font-family: sans-serif;
+	background-color: #cccccc;
+	font-family: sans-serif;
+	width: 100%;
+	margin: 0;
 }
 
-main, .centered {
-  display:flex;
-  justify-content: center;
-  flex-direction: row;
+main,
+.centered {
+	left: 25%;
+	width: 50%;
+	position: relative;
 }
 
 .content-box {
-  margin: 8px;
-  width: 50%;
-  padding: 4px;
+	margin: 8px;
+	min-width: 50vh;
+	width: 100%;
+	padding: 4px;
+}
+
+.answer-box input {
+	margin: 2px;
 }
 
 .split--horizontal {
-  display:flex;
-  justify-content: space-between;
+	display: flex;
+	justify-content: space-between;
 }
-  
 
 .content-box--neutral {
-  color: var(--color-neutral);
-  background-color: #ffffff;
-  border: 1px solid var(--color-neutral);
-  box-shadow: 8px 8px 8px 0px rgba(0,0,0,0.4);
-  -webkit-box-shadow: 8px 8px 8px 0px rgba(0,0,0,0.4);
-  -moz-box-shadow: 8px 8px 8px 0px rgba(0,0,0,0.4);
+	color: var(--color-neutral);
+	background-color: #ffffff;
+	border: 1px solid var(--color-neutral);
+	box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.4);
 }

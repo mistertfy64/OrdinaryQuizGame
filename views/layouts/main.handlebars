@@ -13,9 +13,12 @@
     {{{body}}}
     <br>
   </main>
-  <p class="centered" style="font-size:10px">
-    Created by mistertfy64&nbsp;-&nbsp;<a href="https://github.com/mistertfy64/OrdinaryQuizGame">Repository</a>
-  </p>
+  {{#each scripts}}
+  <script src="{{script}}"></script>
+  {{/each}}
 </body>
+<p class="centered" style="font-size:10px">
+  Created by mistertfy64&nbsp;-&nbsp;<a href="https://github.com/mistertfy64/OrdinaryQuizGame">Repository</a>
+</p>
 
 </html>
