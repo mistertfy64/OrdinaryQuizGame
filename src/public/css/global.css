@@ -40,3 +40,7 @@ main,
 	-webkit-box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.4);
 	-moz-box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.4);
 }
+
+.input-field--long {
+	width: 80%;
+}
