@@ -1,8 +1,8 @@
 <div class="content-box content-box--neutral">
   <div class="split--horizontal">
     <div>OrdinaryQuizGame v0.1.0</div>
-    <div style="text-align:right"><input type="text"
-        placeholder="Enter contact info (optional)">&nbsp;<button>Publish</button>
+    <div style="text-align:right"><input type="text" placeholder="Enter contact info (optional)">&nbsp;<button
+        id="publish-button">Publish</button>
       <p style="font-size:10px">
         Enter your contact info (optional) to get information about or request changes to your quiz.
         <br>
@@ -14,23 +14,35 @@
   <input type="text" placeholder="Enter quiz name">
   <br>
   <p style="text-align:center">
-    <button id="add-new-question">Duplicate First Question</button>
-    <button id="delete-question">Delete Last Question</button>
+    <button id="add-new-question-button">Duplicate First Question</button>
+    <button id="delete-question-button">Delete Last Question</button>
   </p>
 </div>
 
 <form id="questions">
   <div class="content-box content-box--neutral question-box" id="question-box--question-1">
     <div class="split--horizontal">
-      <div style="width:75%"><input type="text" class="input-field--long" placeholder="Enter question"></div>
+      <div style="width:75%">
+        <input name="question" type="text" class="input-field--long" placeholder="Enter question">
+        <br>
+        <div class="correct-answer-box">
+          Correct answer: <input type="radio" name="correct-answer--q1" value="answer1"> Answer 1
+          &nbsp;
+          <input type="radio" name="correct-answer--q1" value="answer2"> Answer 2
+          &nbsp;
+          <input type="radio" name="correct-answer--q1" value="answer3"> Answer 3
+          &nbsp;
+          <input type="radio" name="correct-answer--q1" value="answer4"> Answer 4
+        </div>
+      </div>
       <div class="answer-box">
-        <input type="text" placeholder="Enter answer 1">
+        <input name="answer1" type="text" placeholder="Enter answer 1">
         <br>
-        <input type="text" placeholder="Enter answer 2">
+        <input name="answer2" type="text" placeholder="Enter answer 2">
         <br>
-        <input type="text" placeholder="Enter answer 3">
+        <input name="answer3" type="text" placeholder="Enter answer 3">
         <br>
-        <input type="text" placeholder="Enter answer 4">
+        <input name="answer4" type="text" placeholder="Enter answer 4">
       </div>
     </div>
   </div>

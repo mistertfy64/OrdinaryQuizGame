@@ -11,14 +11,14 @@ body {
 
 main,
 .centered {
-	left: 25%;
-	width: 50%;
+	left: auto;
+	width: max(576px, 50%);
 	position: relative;
 }
 
 .content-box {
 	margin: 8px;
-	min-width: 50vh;
+	min-width: max(576px, 50vw);
 	width: 100%;
 	padding: 4px;
 }
