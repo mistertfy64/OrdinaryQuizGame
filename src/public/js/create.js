@@ -2,6 +2,11 @@ const questionBox = document.getElementById("question-box--question-1");
 let numberOfQuestions = 1;
 
 document.getElementById("add-new-question-button").onclick = function () {
+	// limit number of questions to 100
+	if (numberOfQuestions >= 100) {
+		return;
+	}
+
 	function createCorrectAnswerBox(number) {
 		return `Correct answer: <input type="radio" name="correct-answer--q${number}" value="answer1"> Answer 1&nbsp;
     <input type="radio" name="correct-answer--q${number}" value="answer2"> Answer 2&nbsp;
