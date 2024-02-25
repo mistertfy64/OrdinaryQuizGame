@@ -11,9 +11,9 @@ body {
 
 main,
 .centered {
-	left: auto;
 	width: max(576px, 50%);
 	position: relative;
+	margin: auto;
 }
 
 .content-box {
