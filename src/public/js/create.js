@@ -22,16 +22,36 @@ document.getElementById("add-new-question-button").onclick = function () {
 
 document.getElementById("publish-button").onclick = async function () {
 	function createBody() {
-		const result = [];
-		for (let i = 1; i <= numberOfQuestions; i++) {
+		const result = { questions: [] };
+		for (let q = 1; q <= numberOfQuestions; q++) {
 			const questionElement = document.getElementById(
-				`question-box--question-${numberOfQuestions}`
+				`question-box--question-${q}`
 			);
-			console.log(questionElement);
 			const questionInformation = {};
-			questionInformation.question = questionElement;
+			// the question
+			questionInformation.question = questionElement.querySelector(
+				"input[name='question']"
+			).value;
+			// the correct answer
+			questionInformation.correctAnswer = questionElement.querySelector(
+				`input[name='correct-answer--q${q}']`
+			);
+			// the answers
+			questionInformation.answers = [];
+			const questionAnswerInformation =
+				questionElement.querySelector(".answer-box");
+			for (let a = 1; a <= 4; a++) {
+				const element = questionAnswerInformation.querySelector(
+					`input[name='answer${a}']`
+				);
+				questionInformation.answers.push(element.value);
+			}
+			result.questions.push(questionInformation);
 		}
+		return result;
 	}
+
+	console.log(createBody());
 
 	try {
 		const response = await fetch("/publish", {
