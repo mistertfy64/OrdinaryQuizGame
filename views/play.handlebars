@@ -8,8 +8,13 @@
   <br>
 </div>
 
-<form id="questions">
+<form action="/submit/{{quizID}}" method="POST" id="questions">
   {{#each questions}}
   {{> question this }}
   {{/each}}
+  <div class="content-box content-box--neutral">
+    <div class="split--horizontal">
+      <input name="name" type="text" placeholder="Name (optional)"> <input type="submit">
+    </div>
+  </div>
 </form>

@@ -13,7 +13,10 @@ const limiter = rateLimit({
 router.get("/play/:id", limiter, async (request, response) => {
 	const quiz = await getQuiz(request.params.id);
 	if (quiz) {
-		response.render("play", { questions: quiz.questions });
+		response.render("play", {
+			questions: quiz.questions,
+			quizID: request.params.id,
+		});
 	} else {
 		response.send("404");
 	}
