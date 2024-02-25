@@ -6,17 +6,14 @@ interface QuizInterface {
 
 interface QuizModel extends mongoose.Model<QuizInterface> {}
 
-const QuizSchema = new mongoose.Schema<QuizInterface, QuizModel>(
-	{
-		questions: Array,
-	},
-	{ collection: "quizzes" }
-);
+const QuizSchema = new mongoose.Schema<QuizInterface, QuizModel>({
+	questions: Array,
+});
 
 const Quiz = mongoose.model<QuizInterface, QuizModel>(
 	"Quiz",
 	QuizSchema,
-	"Quiz"
+	"quizzes"
 );
 
 export default Quiz;
