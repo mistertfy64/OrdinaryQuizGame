@@ -2,6 +2,8 @@ import express, { Request, Response } from "express";
 import { create } from "express-handlebars";
 import { log } from "./core/log";
 import mongoSanitize from "express-mongo-sanitize";
+import mongoose from "mongoose";
+require("dotenv").config();
 
 // constants
 const PORT = 10003;
@@ -21,6 +23,11 @@ require("fs")
 	.forEach((file: string) => {
 		app.use(require("./routes/" + file).router);
 	});
+
+mongoose.connect(process.env.DATABASE_URI || "");
+mongoose.connection.on("connected", async () => {
+	log.info(`Connected to database! Database is now available.`);
+});
 
 app.listen(PORT, () => {
 	log.info(`OrdinaryQuizGame listening at port ${PORT}`);

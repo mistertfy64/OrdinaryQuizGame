@@ -44,3 +44,7 @@ main,
 .input-field--long {
 	width: 80%;
 }
+
+h3 {
+	margin: 2px;
+}
