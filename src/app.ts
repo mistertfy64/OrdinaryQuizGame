@@ -5,13 +5,13 @@ import { log } from "./core/log";
 // constants
 const PORT = 10003;
 const app = express();
-const hbs = create({});
+const handlebars = create({});
 
 // configurations
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "handlebars");
 app.set("views", "./views");
-app.engine("handlebars", hbs.engine);
+app.engine("handlebars", handlebars.engine);
 
 // routes
 require("fs")

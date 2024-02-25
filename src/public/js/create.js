@@ -34,8 +34,8 @@ document.getElementById("publish-button").onclick = async function () {
 			).value;
 			// the correct answer
 			questionInformation.correctAnswer = questionElement.querySelector(
-				`input[name='correct-answer--q${q}']`
-			);
+				`input[name='correct-answer--q${q}']:checked`
+			).value;
 			// the answers
 			questionInformation.answers = [];
 			const questionAnswerInformation =
