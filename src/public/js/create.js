@@ -90,9 +90,10 @@ document.getElementById("publish-button").onclick = async function () {
 			credentials: "same-origin",
 			body: JSON.stringify(body),
 		});
-		if (response.success) {
+		const jsonResponse = await response.json();
+		if (jsonResponse.success) {
 			alert("Quiz created!");
-			console.log(response.quizID);
+			window.location.href = `/play/${jsonResponse.quizID}`;
 		} else {
 			alert("Failed to create quiz!");
 		}
