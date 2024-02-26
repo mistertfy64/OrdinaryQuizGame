@@ -25,6 +25,19 @@ document.getElementById("add-new-question-button").onclick = function () {
 	document.getElementById("questions").appendChild(newQuestionBox);
 };
 
+document.getElementById("delete-question-button").onclick = function () {
+	if (numberOfQuestions <= 1) {
+		return;
+	}
+
+	const toDelete = document.querySelector(
+		`#question-box--question-${numberOfQuestions}`
+	);
+
+	toDelete.remove();
+	numberOfQuestions--;
+};
+
 document.getElementById("publish-button").onclick = async function () {
 	function createBody() {
 		// the object to send to server
