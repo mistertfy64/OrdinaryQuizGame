@@ -8,7 +8,18 @@
     <div><input type="text" placeholder="Enter Quiz ID...">&nbsp;<button>Search</button></div>
   </div>
   <br>
-  <h1>{{quizName}}</h1>
+  <div class="split--horizontal">
+    <div>
+      <h1>{{quizName}}</h1>
+    </div>
+    <div>
+      <table class="table--results">
+        {{#each results}}
+        {{> result this}}
+        {{/each}}
+      </table>
+    </div>
+  </div>
   <br>
 </div>
 

@@ -53,3 +53,18 @@ h3 {
 	color: #000000 !important;
 	text-decoration: none !important;
 }
+
+.table--results {
+	border: 1px solid #000000;
+	border-collapse: collapse;
+	font-size: 10px;
+}
+
+.table--results,
+.table--results td {
+	border: 1px solid #000000;
+}
+
+.table--results tr:nth-of-type(even) {
+	background-color: #eee;
+}
