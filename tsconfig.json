@@ -1,0 +1,16 @@
+{
+  "include": ["src/**/*",  "server/tsconfig.json", "client/tsconfig.json"],
+  "exclude": ["**/*/lib/*.js", "**/ignored/**", "client/**/*","__tests__/**/*"],
+  "types": ["cypress"],
+  "compilerOptions": {     
+    "module": "CommonJS",
+    "target": "es6",                                                                                              
+    "esModuleInterop": true,                             
+    "forceConsistentCasingInFileNames": true,            
+    "strict": true,       
+    "outDir": "dist",                                
+    "skipLibCheck": true, 
+    "lib": ["es2021", "dom"],   
+    "moduleResolution": "node",    
+  }
+}

@@ -1,0 +1,37 @@
+<div class="content-box content-box--neutral">
+  <div class="split--horizontal">
+    <div>
+      <a class="link--hidden" href="/">
+        OrdinaryQuizGame v0.1.0-alpha
+      </a>
+    </div>
+    <div><input type="text" placeholder="Enter Quiz ID...">&nbsp;<button>Search</button></div>
+  </div>
+  <br>
+  <div class="split--horizontal">
+    <div>
+      <h1>{{quizName}}</h1>
+      {{!-- <input type="hidden" name="csrf-token" value="{{csrfToken}}"> --}}
+    </div>
+    <div>
+      <table class="table--results">
+        {{#each results}}
+        {{> result this}}
+        {{/each}}
+      </table>
+    </div>
+  </div>
+  <br>
+</div>
+
+<form action="/submit/{{quizID}}" method="POST" id="questions">
+  {{#each questions}}
+  {{> question this }}
+  {{/each}}
+  <div class="content-box content-box--neutral">
+    <input type="hidden" name="csrf-token" value="{{csrfToken}}">
+    <div class="split--horizontal">
+      <input name="name" type="text" placeholder="Name (optional)"> <input type="submit">
+    </div>
+  </div>
+</form>

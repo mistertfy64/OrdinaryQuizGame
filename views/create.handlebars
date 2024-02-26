@@ -1,0 +1,56 @@
+<div class="content-box content-box--neutral">
+  <div class="split--horizontal">
+    <div>
+      <a class="link--hidden" href="/">
+        OrdinaryQuizGame v0.1.0-alpha
+      </a>
+    </div>
+    <div style=" text-align:right"><input type="text" name="contact-information"
+        placeholder="Enter contact info (optional)">&nbsp;<button id="publish-button">Publish</button>
+      <p style="font-size:10px">
+        Enter your contact info (optional) to get information about or request changes to your quiz.
+        <br>
+        Any method of contact is fine, not limited to e-mail. (e.g. @mistertfy64 on Discord)
+        <br>
+        This will not be shown to other users.
+      </p>
+    </div>
+  </div>
+  <br>
+  <input name="quiz-name" type="text" placeholder="Enter quiz name">
+  <input type="hidden" name="csrf-token" value="{{csrfToken}}">
+  <br>
+  <p style="text-align:center">
+    <button id="add-new-question-button">Duplicate First Question</button>
+    <button id="delete-question-button">Delete Last Question</button>
+  </p>
+</div>
+
+<form id="questions">
+  <div class="content-box content-box--neutral question-box" id="question-box--question-1">
+    <div class="split--horizontal">
+      <div style="width:75%">
+        <input name="question" type="text" class="input-field--long" placeholder="Enter question">
+        <br>
+        <div class="correct-answer-box">
+          Correct answer: <input type="radio" name="correct-answer--q1" value="answer1"> Answer 1
+          &nbsp;
+          <input type="radio" name="correct-answer--q1" value="answer2"> Answer 2
+          &nbsp;
+          <input type="radio" name="correct-answer--q1" value="answer3"> Answer 3
+          &nbsp;
+          <input type="radio" name="correct-answer--q1" value="answer4"> Answer 4
+        </div>
+      </div>
+      <div class="answer-box">
+        <input name="answer1" type="text" placeholder="Enter answer 1">
+        <br>
+        <input name="answer2" type="text" placeholder="Enter answer 2">
+        <br>
+        <input name="answer3" type="text" placeholder="Enter answer 3">
+        <br>
+        <input name="answer4" type="text" placeholder="Enter answer 4">
+      </div>
+    </div>
+  </div>
+</form>
