@@ -101,5 +101,6 @@ document.getElementById("publish-button").onclick = async function () {
 		// TODO: show error to user
 		console.error(error);
 		console.error(error.stack);
+		alert("Failed to create quiz!");
 	}
 };
