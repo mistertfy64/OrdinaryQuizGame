@@ -17,7 +17,7 @@
   },
   "name": "ordinaryquizgame",
   "description": "Make quizzes on just about anything from yourself to OrdinaryQuizGame.",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha",
   "main": "index.js",
   "devDependencies": {
     "@types/cookie-parser": "^1.4.6",
