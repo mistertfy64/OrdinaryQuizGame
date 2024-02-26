@@ -21,7 +21,12 @@ router.post("/submit/:id", urlParser, limiter, async (request, response) => {
 	// TODO: validation and sanitization
 	const quizID = request.params.id;
 	const results = await checkQuizAnswers(quizID, body);
-	response.send(results);
+	response.render("results", {
+		score: results.score,
+		questions: results.results,
+		total: results.total,
+		name: results.name,
+	});
 });
 
 export { router };

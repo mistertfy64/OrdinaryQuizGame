@@ -8,6 +8,8 @@ async function checkQuizAnswers(quizID: string, body: any) {
 	const result = {
 		score: 0,
 		results: "",
+		name: "",
+		total: 0,
 	};
 	if (!quiz || !body) {
 		return result;
@@ -33,6 +35,10 @@ async function checkQuizAnswers(quizID: string, body: any) {
 			dateAndTime: new Date(),
 		});
 	}
+
+	// add extra information
+	result.name = quiz.name;
+	result.total = quiz.questions.length;
 
 	return result;
 }
