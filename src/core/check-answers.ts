@@ -1,4 +1,6 @@
+import sanitizeHtml from "sanitize-html";
 import { getQuiz } from "./get-quiz";
+import { recordAnswer } from "./record-answer";
 
 async function checkQuizAnswers(quizID: string, body: any) {
 	// validation
@@ -23,12 +25,12 @@ async function checkQuizAnswers(quizID: string, body: any) {
 	}
 
 	// record results
-	// (if user entered name)
-	if (body.name) {
-		quiz.results.push({
-			name: body.name,
+	// (if user entered name and its less than 512 chars)
+	if (body.name && body.name.length <= 512) {
+		recordAnswer(quizID, {
+			name: sanitizeHtml(body.name),
 			score: result.score,
-			dateAndTime: Date.now(),
+			dateAndTime: new Date(),
 		});
 	}
 

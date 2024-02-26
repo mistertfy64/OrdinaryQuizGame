@@ -2,7 +2,7 @@ import Quiz from "../models/Quiz";
 import { log } from "./log";
 import { validateQuizID } from "./validate";
 
-async function getQuiz(id: string) {
+async function getQuiz(id: string, hydrated: boolean = false) {
 	// TODO: more validation and sanitization
 
 	// check if id is correctly formatted
@@ -15,6 +15,12 @@ async function getQuiz(id: string) {
 	if (!document) {
 		return null;
 	}
+
+	//check if hydrated requested
+	if (hydrated) {
+		return document;
+	}
+
 	const quiz = JSON.parse(JSON.stringify(document));
 	// additionally, create quiz ready to play
 	let questionNumber = 0;
