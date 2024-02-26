@@ -9,8 +9,10 @@ const limiter = rateLimit({
 	legacyHeaders: false,
 });
 
+const scripts = [{ script: "/js/index.js" }];
+
 router.get("/", limiter, (request, response) => {
-	response.render("index");
+	response.render("index", { scripts: scripts });
 });
 
 export { router };
