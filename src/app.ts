@@ -29,6 +29,10 @@ mongoose.connection.on("connected", async () => {
 	log.info(`Connected to database! Database is now available.`);
 });
 
+if (process.env.CREDENTIAL_SET_USED == "testing") {
+	log.warn(`Using testing credentials.`);
+}
+
 app.listen(PORT, () => {
 	log.info(`OrdinaryQuizGame listening at port ${PORT}`);
 });
