@@ -19,7 +19,6 @@ const limiter = rateLimit({
 
 router.post("/publish", jsonParser, limiter, (request, response) => {
 	const body = request.body;
-	console.log(body);
 	if (!validateNewQuiz(body)) {
 		response.send("Unable to publish quiz. (Failed validation)");
 	}
