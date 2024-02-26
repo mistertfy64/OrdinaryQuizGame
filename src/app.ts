@@ -26,7 +26,7 @@ require("fs")
 
 // 404
 app.get("*", async (request, response) => {
-	response.render("404");
+	response.status(404).render("404");
 });
 
 mongoose.connect(process.env.DATABASE_URI || "");
