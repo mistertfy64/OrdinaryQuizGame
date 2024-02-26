@@ -48,3 +48,8 @@ main,
 h3 {
 	margin: 2px;
 }
+
+.link--hidden {
+	color: #000000 !important;
+	text-decoration: none !important;
+}
