@@ -20,7 +20,7 @@ function validateNewQuiz(body: { [key: string]: any }) {
 	}
 
 	// There must be at least 1 question and at most 100.
-	if (body.questions.length > 100 || body.question.length < 1) {
+	if (body.questions.length > 100 || body.questions.length < 1) {
 		return false;
 	}
 
