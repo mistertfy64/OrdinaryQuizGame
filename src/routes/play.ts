@@ -18,6 +18,7 @@ router.get("/play/:id", limiter, async (request, response) => {
 			quizID: request.params.id,
 			quizName: quiz.name,
 			results: quiz.results,
+			csrfToken: response.getHeader("x-csrf-token"),
 		});
 	} else {
 		response.status(404).render("404");

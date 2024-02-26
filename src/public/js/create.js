@@ -73,7 +73,11 @@ document.getElementById("publish-button").onclick = async function () {
 			method: "post",
 			headers: {
 				"Content-Type": "application/json",
+				"x-csrf-token": document.querySelector(
+					"input[name='csrf-token']"
+				).value,
 			},
+			credentials: "same-origin",
 			body: JSON.stringify(body),
 		});
 		if (response.ok) {

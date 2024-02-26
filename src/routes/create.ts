@@ -12,7 +12,10 @@ const limiter = rateLimit({
 const scripts = [{ script: "/js/create.js" }];
 
 router.get("/create", limiter, (request, response) => {
-	response.render("create", { scripts: scripts });
+	response.render("create", {
+		scripts: scripts,
+		csrfToken: response.getHeader("x-csrf-token"),
+	});
 });
 
 export { router };

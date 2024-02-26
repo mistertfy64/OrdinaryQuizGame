@@ -11,6 +11,7 @@
   <div class="split--horizontal">
     <div>
       <h1>{{quizName}}</h1>
+      {{!-- <input type="hidden" name="csrf-token" value="{{csrfToken}}"> --}}
     </div>
     <div>
       <table class="table--results">
@@ -28,6 +29,7 @@
   {{> question this }}
   {{/each}}
   <div class="content-box content-box--neutral">
+    <input type="hidden" name="csrf-token" value="{{csrfToken}}">
     <div class="split--horizontal">
       <input name="name" type="text" placeholder="Name (optional)"> <input type="submit">
     </div>
