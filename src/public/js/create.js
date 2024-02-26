@@ -28,7 +28,12 @@ document.getElementById("add-new-question-button").onclick = function () {
 document.getElementById("publish-button").onclick = async function () {
 	function createBody() {
 		// the object to send to server
-		const result = { questions: [], name: "", contactInformation: "" };
+		const result = {
+			questions: [],
+			name: "",
+			contactInformation: "",
+			"csrf-token": "",
+		};
 
 		// name
 		result.name = document.querySelector("input[name='quiz-name']").value;
@@ -64,6 +69,11 @@ document.getElementById("publish-button").onclick = async function () {
 			}
 			result.questions.push(questionInformation);
 		}
+
+		result["csrf-token"] = document.querySelector(
+			"input[name='csrf-token']"
+		).value;
+
 		return result;
 	}
 
@@ -80,10 +90,11 @@ document.getElementById("publish-button").onclick = async function () {
 			credentials: "same-origin",
 			body: JSON.stringify(body),
 		});
-		if (response.ok) {
-			// TODO: don't directly redirect to quiz play
-			// placeholder
-			window.location.href = `/play/${response.quizID}`;
+		if (response.success) {
+			alert("Quiz created!");
+			console.log(response.quizID);
+		} else {
+			alert("Failed to create quiz!");
 		}
 	} catch (error) {
 		// TODO: show error to user

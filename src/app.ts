@@ -13,6 +13,7 @@ const PORT = 10003;
 const app = express();
 const handlebars = create({});
 const urlParser = bodyParser.urlencoded({ extended: true });
+const jsonParser = bodyParser.json();
 
 const cookieName =
 	process.env.CREDENTIAL_SET_USED != "testing"
@@ -37,6 +38,7 @@ app.use(mongoSanitize());
 app.set("view engine", "handlebars");
 app.set("views", "./views");
 app.engine("handlebars", handlebars.engine);
+app.use(jsonParser);
 app.use(urlParser);
 app.use(cookieParser());
 app.use(doubleCsrfProtection);

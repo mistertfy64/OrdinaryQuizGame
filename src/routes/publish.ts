@@ -25,10 +25,10 @@ router.post("/publish", jsonParser, limiter, async (request, response) => {
 	const cleanQuiz = await sanitizeNewQuiz(body);
 	const quizID = await addQuiz(cleanQuiz);
 	if (quizID == null) {
-		response.json({ ok: false });
+		response.json({ success: false });
 	}
 	log.info(`New quiz with ID ${quizID} is created.`);
-	response.json({ ok: true, quizID: quizID });
+	response.json({ success: true, quizID: quizID });
 });
 
 export { router };
