@@ -24,6 +24,11 @@ require("fs")
 		app.use(require("./routes/" + file).router);
 	});
 
+// 404
+app.get("*", async (request, response) => {
+	response.render("404");
+});
+
 mongoose.connect(process.env.DATABASE_URI || "");
 mongoose.connection.on("connected", async () => {
 	log.info(`Connected to database! Database is now available.`);

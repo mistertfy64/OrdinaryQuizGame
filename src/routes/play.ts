@@ -20,7 +20,7 @@ router.get("/play/:id", limiter, async (request, response) => {
 			results: quiz.results,
 		});
 	} else {
-		response.send("404");
+		response.render("404");
 	}
 });
 

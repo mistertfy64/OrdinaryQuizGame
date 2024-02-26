@@ -17,13 +17,13 @@ const limiter = rateLimit({
 	legacyHeaders: false,
 });
 
-router.post("/publish", jsonParser, limiter, (request, response) => {
+router.post("/publish", jsonParser, limiter, async (request, response) => {
 	const body = request.body;
 	if (!validateNewQuiz(body)) {
 		response.send("Unable to publish quiz. (Failed validation)");
 	}
-	const cleanQuiz = sanitizeNewQuiz(body);
-	const quizID = addQuiz(cleanQuiz);
+	const cleanQuiz = await sanitizeNewQuiz(body);
+	const quizID = await addQuiz(cleanQuiz);
 	if (quizID == null) {
 		response.json({ ok: false });
 	}
