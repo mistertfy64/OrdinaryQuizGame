@@ -1,17 +1,19 @@
 <div class="content-box content-box--neutral">
   <div class="split--horizontal">
     <div>OrdinaryQuizGame v0.1.0</div>
-    <div style="text-align:right"><input type="text" placeholder="Enter contact info (optional)">&nbsp;<button
-        id="publish-button">Publish</button>
+    <div style="text-align:right"><input type="text" name="contact-information"
+        placeholder="Enter contact info (optional)">&nbsp;<button id="publish-button">Publish</button>
       <p style="font-size:10px">
         Enter your contact info (optional) to get information about or request changes to your quiz.
         <br>
         Any method of contact is fine, not limited to e-mail. (e.g. @mistertfy64 on Discord)
+        <br>
+        This will not be shown to other users.
       </p>
     </div>
   </div>
   <br>
-  <input type="text" placeholder="Enter quiz name">
+  <input name="quiz-name" type="text" placeholder="Enter quiz name">
   <br>
   <p style="text-align:center">
     <button id="add-new-question-button">Duplicate First Question</button>

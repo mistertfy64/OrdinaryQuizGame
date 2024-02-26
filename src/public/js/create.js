@@ -27,7 +27,18 @@ document.getElementById("add-new-question-button").onclick = function () {
 
 document.getElementById("publish-button").onclick = async function () {
 	function createBody() {
-		const result = { questions: [] };
+		// the object to send to server
+		const result = { questions: [], name: "", contactInformation: "" };
+
+		// name
+		result.name = document.querySelector("input[name='quiz-name']").value;
+
+		// contact information
+		result.contactInformation = document.querySelector(
+			"input[name='contact-information']"
+		).value;
+
+		// questions
 		for (let q = 1; q <= numberOfQuestions; q++) {
 			const questionElement = document.getElementById(
 				`question-box--question-${q}`
@@ -65,5 +76,14 @@ document.getElementById("publish-button").onclick = async function () {
 			},
 			body: JSON.stringify(body),
 		});
-	} catch (error) {}
+		if (response.ok) {
+			// TODO: don't directly redirect to quiz play
+			// placeholder
+			window.location.href = `/play/${response.quizID}`;
+		}
+	} catch (error) {
+		// TODO: show error to user
+		console.error(error);
+		console.error(error.stack);
+	}
 };

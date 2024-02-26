@@ -2,6 +2,14 @@ import sanitizeHtml from "sanitize-html";
 
 function sanitizeNewQuiz(body: { [key: string]: any }) {
 	const cleanQuiz = JSON.parse(JSON.stringify(body));
+
+	// name
+	cleanQuiz.name = sanitizeHtml(cleanQuiz.name);
+
+	// contact info
+	cleanQuiz.contactInformation = sanitizeHtml(cleanQuiz.contactInformation);
+
+	// questions
 	for (const question of cleanQuiz.questions) {
 		// sanitize the question text
 		question.question = sanitizeHtml(question.question);
@@ -10,6 +18,10 @@ function sanitizeNewQuiz(body: { [key: string]: any }) {
 			question.answers[a] = sanitizeHtml(question.answers[a]);
 		}
 	}
+
+	// additional info
+	cleanQuiz.creationDateAndTime = Date.now();
+
 	return cleanQuiz;
 }
 

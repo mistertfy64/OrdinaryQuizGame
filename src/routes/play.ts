@@ -16,6 +16,7 @@ router.get("/play/:id", limiter, async (request, response) => {
 		response.render("play", {
 			questions: quiz.questions,
 			quizID: request.params.id,
+			quizName: quiz.name,
 		});
 	} else {
 		response.send("404");

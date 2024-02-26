@@ -26,10 +26,10 @@ router.post("/publish", jsonParser, limiter, (request, response) => {
 	const cleanQuiz = sanitizeNewQuiz(body);
 	const quizID = addQuiz(cleanQuiz);
 	if (quizID == null) {
-		response.send("Unable to publish quiz.");
+		response.json({ ok: false });
 	}
 	log.info(`New quiz with ID ${quizID} is created.`);
-	response.send(`Quiz published! (as ID ${quizID})`);
+	response.json({ ok: true, quizID: quizID });
 });
 
 export { router };
